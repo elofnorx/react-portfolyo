@@ -1,4 +1,4 @@
-import { ExternalLink, Film, Gamepad2, Shirt } from 'lucide-react';
+import { Cpu, ExternalLink, Film, Gamepad2, Shirt } from 'lucide-react';
 
 const Github = (props) => (
   <svg
@@ -44,6 +44,15 @@ export default function Projects() {
       tags: ["Oyunlaştırma", "Python", "Arduino", "Etkileşimli Öğrenme"],
       icon: <Gamepad2 size={40} />,
       demoUrl: "#",
+      githubUrl: "#"
+    },
+    {
+      id: 4,
+      title: "RoboCraft",
+      description: "Öğrencilerin kodlama ve robotik becerilerini geliştiren, etkileşimli ve eğitsel 3D blok tabanlı robotik simülasyon ve oyunlaştırma platformu.",
+      tags: ["Robotics", "3D Simulation", "Arduino", "EdTech"],
+      icon: <Cpu size={40} />,
+      demoUrl: "https://robocraft-aue.vercel.app/",
       githubUrl: "#"
     }
   ];
