@@ -25,7 +25,7 @@ export default function Projects() {
       description: "Sürdürülebilir moda ilkeleri doğrultusunda hazırlanan, kişiye özel 3D dijital ölçüm ve giysi sigorta sistemi projesi.",
       tags: ["3D Modelleme", "Blender", "Sürdürülebilirlik", "Öğretim Tasarımı"],
       icon: <Shirt size={40} />,
-      demoUrl: "#",
+      demoUrl: "https://site-2v28z0q76.godaddysites.com/",
       githubUrl: "#"
     },
     {
@@ -85,10 +85,22 @@ export default function Projects() {
 
                 {/* External Links */}
                 <div className="project-links">
-                  <a href={project.demoUrl} className="project-link" aria-label={`${project.title} Canlı Önizleme`}>
+                  <a 
+                    href={project.demoUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="project-link" 
+                    aria-label={`${project.title} Canlı Önizleme`}
+                  >
                     Canlı Gösterim <ExternalLink size={16} />
                   </a>
-                  <a href={project.githubUrl} className="project-link" aria-label={`${project.title} GitHub Deposu`}>
+                  <a 
+                    href={project.githubUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="project-link" 
+                    aria-label={`${project.title} GitHub Deposu`}
+                  >
                     Kodlar <Github size={16} />
                   </a>
                 </div>

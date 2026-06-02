@@ -1,4 +1,5 @@
-import { ArrowUpRight, Code, Sparkles } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import profilImg from '../assets/profil.jpg';
 
 export default function Hero() {
   return (
@@ -53,17 +54,21 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Visual Showcase (Mockup) */}
+          {/* Visual Showcase (Mockup with real photo) */}
           <div className="hero-visual">
             <div className="hero-glow-ring"></div>
-            <div className="hero-image-card">
-              <div className="hero-image-placeholder">
-                <Sparkles size={48} className="animated-sparkle" />
-                <Code size={36} />
-                <span style={{ fontSize: '0.75rem', letterSpacing: '0.05em', color: 'var(--text-muted)', textAlign: 'center', padding: '0 1rem' }}>
-                  EDTECH / INSTRUCTIONAL DESIGN
-                </span>
-              </div>
+            <div className="hero-image-card" style={{ padding: 0, overflow: 'hidden' }}>
+              <img 
+                src={profilImg} 
+                alt="Elifnur Bağcı" 
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'cover', 
+                  objectPosition: 'center 20%',
+                  display: 'block'
+                }} 
+              />
             </div>
           </div>
 
