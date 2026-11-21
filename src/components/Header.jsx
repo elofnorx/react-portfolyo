@@ -53,7 +53,7 @@ export default function Header() {
     <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
       <div className="container nav-container">
         <a href="#hero" className="logo" onClick={(e) => handleLinkClick(e, 'hero')}>
-          Portfolio<span>.</span>
+          Elifnur Bağcı<span>.</span>
         </a>
 
         {/* Desktop & Mobile Nav Links */}
@@ -102,6 +102,7 @@ export default function Header() {
         <button
           className="mobile-toggle"
           onClick={toggleMobileMenu}
+          aria-expanded={isMobileMenuOpen}
           aria-label={isMobileMenuOpen ? "Menüyü kapat" : "Menüyü aç"}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

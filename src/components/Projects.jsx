@@ -1,124 +1,90 @@
-import { Cpu, ExternalLink, Film, Gamepad2, Shirt } from 'lucide-react';
+import { Code, Cpu, ExternalLink, Film, Gamepad2, Shirt } from 'lucide-react';
 
-const Github = (props) => (
-  <svg
-    viewBox="0 0 24 24"
-    width="24"
-    height="24"
-    stroke="currentColor"
-    strokeWidth="2"
-    fill="none"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
-    <path d="M9 18c-4.51 2-5-2-7-2" />
-  </svg>
-);
+const projects = [
+  {
+    id: 'bilisim-macerasi',
+    title: 'Bilişim Macerası / Robi’nin Macerası',
+    description: 'Özel eğitim gereksinimi olan 7–12 yaş grubu için 20 fare, 15 klavye ve 5 bütünleştirme etkinliği tasarladım. Öğrenciler model gösteriminden bağımsız uygulamaya ve farklı bağlamda denemeye ilerliyor. Öğretmen panelinde ilerleme ve ipucu kullanımı izlenebiliyor.',
+    tags: ['Öğretim Tasarımı', 'Oyun Tabanlı Öğrenme', 'React', 'TypeScript'],
+    Icon: Gamepad2,
+    demoUrl: 'https://elofnorx.github.io/bilisim-macerasi/',
+    githubUrl: 'https://github.com/elofnorx/bilisim-macerasi',
+  },
+  {
+    id: 'robokasifler',
+    title: 'RoboKâşifler (RoboCraft)',
+    description: 'Tinkercad ve Arduino konularının uzaktan öğretimi için HTML, CSS ve React ile bir eğitim portalı geliştirdim.',
+    tags: ['Uzaktan Öğrenme', 'Tinkercad', 'Arduino', 'React'],
+    Icon: Cpu,
+    demoUrl: 'https://robocraft-aue.vercel.app/',
+  },
+  {
+    id: 'akord',
+    title: 'AKORD',
+    description: 'C# algoritma öğrenimine yönelik araştırma prototipi. Öğrencilerin koşul ve döngü görevleri üzerinde çalışırken yapay zekâdan doğrudan yanıt veya Sokratik sorularla destek almasını karşılaştırmak için tasarlandı.',
+    tags: ['Programlama Eğitimi', 'Üretken Yapay Zekâ', 'C#'],
+    Icon: Code,
+    demoUrl: 'https://akord-sage.vercel.app/',
+  },
+  {
+    id: 'egitsel-video',
+    title: 'Eğitsel Video ve Öğretim Materyali Tasarımı',
+    description: 'Öğretim hedeflerine göre eğitsel video senaryoları ve görsel akışlar hazırladım, video kurguladım ve etkileşimli dijital materyaller tasarladım.',
+    tags: ['Senaryo', 'Video Kurgu', 'Adobe Express', 'Öğretim Tasarımı'],
+    Icon: Film,
+  },
+  {
+    id: 'fitloop',
+    title: 'FITLOOP',
+    description: 'Sürdürülebilir moda odaklı, kişiye özel 3D dijital ölçüm ve giysi sigortası üzerine bir proje. Dijital prototipleme ve görselleştirme süreçlerinde çalıştım.',
+    tags: ['3D Modelleme', 'Blender', 'Sürdürülebilirlik'],
+    Icon: Shirt,
+    demoUrl: 'https://site-2v28z0q76.godaddysites.com/',
+  },
+];
 
 export default function Projects() {
-  const projectsData = [
-    {
-      id: 1,
-      title: "FITLOOP",
-      description: "Sürdürülebilir moda ilkeleri doğrultusunda hazırlanan, kişiye özel 3D dijital ölçüm ve giysi sigorta sistemi projesi.",
-      tags: ["3D Modelleme", "Blender", "Sürdürülebilirlik", "Öğretim Tasarımı"],
-      icon: <Shirt size={40} />,
-      demoUrl: "https://site-2v28z0q76.godaddysites.com/",
-      githubUrl: "#"
-    },
-    {
-      id: 2,
-      title: "Eğitsel Video Tasarımı",
-      description: "Öğrenme çıktılarını destekleyen, senaryo ve kurgu aşamaları tamamlanmış yüksek etkileşimli dijital materyaller.",
-      tags: ["Video Kurgu", "Öğretim Tasarımı", "Adobe Express", "Multimedya"],
-      icon: <Film size={40} />,
-      demoUrl: "#",
-      githubUrl: "#"
-    },
-    {
-      id: 3,
-      title: "Eğitsel Oyun ve Oyunlaştırma",
-      description: "Öğrenci motivasyonunu artırmayı hedefleyen, öğrenme sürecini destekleyen interaktif dijital oyun içerikleri.",
-      tags: ["Oyunlaştırma", "Python", "Arduino", "Etkileşimli Öğrenme"],
-      icon: <Gamepad2 size={40} />,
-      demoUrl: "#",
-      githubUrl: "#"
-    },
-    {
-      id: 4,
-      title: "RoboCraft",
-      description: "Öğrencilerin kodlama ve robotik becerilerini geliştiren, etkileşimli ve eğitsel 3D blok tabanlı robotik simülasyon ve oyunlaştırma platformu.",
-      tags: ["Robotics", "3D Simulation", "Arduino", "EdTech"],
-      icon: <Cpu size={40} />,
-      demoUrl: "https://robocraft-aue.vercel.app/",
-      githubUrl: "#"
-    }
-  ];
-
   return (
     <section id="projects" className="projects">
       <div className="container">
-        
-        {/* Section Header */}
         <div className="section-header">
-          <span className="section-subtitle">Portfolyo</span>
-          <h2 className="section-title">Son <span>Projelerim</span></h2>
+          <h2 className="section-title">Seçili <span>Projeler</span></h2>
         </div>
 
-        {/* Projects Grid */}
         <div className="projects-grid">
-          {projectsData.map((project) => (
-            <article key={project.id} className="glass-card project-card">
-              
-              {/* Project Mock Visual */}
-              <div className="project-image">
+          {projects.map(({ id, title, description, tags, Icon, demoUrl, githubUrl }) => (
+            <article key={id} className="glass-card project-card">
+              <div className="project-image" aria-hidden="true">
                 <div className="project-image-placeholder">
-                  {project.icon}
-                  <span style={{ fontSize: '0.8rem', opacity: 0.6 }}>PREVİEW GRAPHIC</span>
+                  <Icon size={40} />
                 </div>
               </div>
 
-              {/* Project Text Content */}
               <div className="project-content">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-desc">{project.description}</p>
-                
-                {/* Tech tags */}
+                <h3 className="project-title">{title}</h3>
+                <p className="project-desc">{description}</p>
                 <div className="project-tags">
-                  {project.tags.map((tag, idx) => (
-                    <span key={idx} className="project-tag">{tag}</span>
-                  ))}
+                  {tags.map((tag) => <span key={tag} className="project-tag">{tag}</span>)}
                 </div>
 
-                {/* External Links */}
-                <div className="project-links">
-                  <a 
-                    href={project.demoUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="project-link" 
-                    aria-label={`${project.title} Canlı Önizleme`}
-                  >
-                    Canlı Gösterim <ExternalLink size={16} />
-                  </a>
-                  <a 
-                    href={project.githubUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="project-link" 
-                    aria-label={`${project.title} GitHub Deposu`}
-                  >
-                    Kodlar <Github size={16} />
-                  </a>
-                </div>
+                {(demoUrl || githubUrl) && (
+                  <div className="project-links">
+                    {demoUrl && (
+                      <a href={demoUrl} target="_blank" rel="noopener noreferrer" className="project-link" aria-label={`${title} demo`}>
+                        Demo <ExternalLink size={16} aria-hidden="true" />
+                      </a>
+                    )}
+                    {githubUrl && (
+                      <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="project-link" aria-label={`${title} kaynak kodu`}>
+                        Kaynak kodu <Code size={16} aria-hidden="true" />
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
-
             </article>
           ))}
         </div>
-
       </div>
     </section>
   );

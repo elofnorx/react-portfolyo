@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, MapPin, Send } from 'lucide-react';
 
 const Github = (props) => (
   <svg
@@ -36,56 +35,25 @@ const Linkedin = (props) => (
   </svg>
 );
 
-const Twitter = (props) => (
-  <svg
-    viewBox="0 0 24 24"
-    width="24"
-    height="24"
-    stroke="currentColor"
-    strokeWidth="2"
-    fill="none"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
-  </svg>
-);
-
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success' or 'error'
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const subject = encodeURIComponent(form.get('subject'));
+    const body = encodeURIComponent([
+      form.get('message'),
+      '',
+      form.get('name'),
+      form.get('email'),
+    ].join('\n'));
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate sending message
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      // Clear status message after 4 seconds
-      setTimeout(() => setSubmitStatus(null), 4000);
-    }, 1500);
+    window.location.href = `mailto:elifxelifx@gmail.com?subject=${subject}&body=${body}`;
   };
 
   return (
     <section id="contact" className="contact">
       <div className="container">
-        
+
         {/* Section Header */}
         <div className="section-header">
           <span className="section-subtitle">İletişim</span>
@@ -94,43 +62,43 @@ export default function Contact() {
 
         {/* Contact Layout Grid */}
         <div className="contact-grid">
-          
+
           {/* Contact Details & Socials */}
           <div className="contact-info">
             <h3>Hadi Birlikte Çalışalım!</h3>
             <p>
-              Aklınızda bir proje mi var, yoksa sadece merhaba mı demek istiyorsunuz? Formu doldurarak ya da doğrudan aşağıdaki iletişim kanallarından bana ulaşabilirsiniz. En kısa sürede dönüş yapacağım.
+              Staj, yarı zamanlı çalışma veya proje iş birliği için e-posta ve LinkedIn üzerinden bana ulaşabilirsiniz.
             </p>
 
             <div className="contact-details">
               {/* Email */}
-              <a 
-                href="mailto:elifxelifx@gmail.com" 
-                className="contact-item" 
+              <a
+                href="mailto:elifxelifx@gmail.com"
+                className="contact-item"
                 style={{ textDecoration: 'none', cursor: 'pointer' }}
               >
                 <div className="contact-item-icon" style={{ transition: 'all 0.3s ease' }}>
                   <Mail size={22} />
                 </div>
                 <div className="contact-item-text">
-                  <h4>E-posta (Tıkla)</h4>
+                  <h4>E-posta</h4>
                   <p style={{ color: 'var(--accent-primary)', fontWeight: '600' }}>elifxelifx@gmail.com</p>
                 </div>
               </a>
 
               {/* LinkedIn */}
-              <a 
-                href="https://www.linkedin.com/in/elifnur-bağcı-0074b8210" 
+              <a
+                href="https://www.linkedin.com/in/elifnur-bağcı-0074b8210"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="contact-item" 
+                className="contact-item"
                 style={{ textDecoration: 'none', cursor: 'pointer' }}
               >
                 <div className="contact-item-icon" style={{ transition: 'all 0.3s ease' }}>
                   <Linkedin size={22} />
                 </div>
                 <div className="contact-item-text">
-                  <h4>LinkedIn (Tıkla)</h4>
+                  <h4>LinkedIn</h4>
                   <p style={{ color: 'var(--accent-primary)', fontWeight: '600' }}>elifnur-bağcı-0074b8210</p>
                 </div>
               </a>
@@ -149,21 +117,8 @@ export default function Contact() {
 
             {/* Social Network Profiles */}
             <div className="social-links">
-              <a 
-                href="https://www.linkedin.com/in/elifnur-bağcı-0074b8210" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="social-btn" 
-                aria-label="LinkedIn Profilim"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a 
-                href="mailto:elifxelifx@gmail.com" 
-                className="social-btn" 
-                aria-label="E-posta Gönder"
-              >
-                <Mail size={20} />
+              <a href="https://github.com/elofnorx" target="_blank" rel="noopener noreferrer" className="social-btn" aria-label="GitHub profilim">
+                <Github size={20} />
               </a>
             </div>
           </div>
@@ -171,7 +126,7 @@ export default function Contact() {
           {/* Dynamic Contact Form Card */}
           <div className="glass-card contact-form">
             <form onSubmit={handleSubmit}>
-              
+
               {/* Form Input Rows */}
               <div className="form-group-row">
                 <div className="form-group">
@@ -181,10 +136,8 @@ export default function Contact() {
                     id="name"
                     name="name"
                     required
-                    value={formData.name}
-                    onChange={handleChange}
                     className="form-input"
-                    placeholder="John Doe"
+                    autoComplete="name"
                   />
                 </div>
                 <div className="form-group">
@@ -194,10 +147,8 @@ export default function Contact() {
                     id="email"
                     name="email"
                     required
-                    value={formData.email}
-                    onChange={handleChange}
                     className="form-input"
-                    placeholder="john@example.com"
+                    autoComplete="email"
                   />
                 </div>
               </div>
@@ -209,8 +160,6 @@ export default function Contact() {
                   id="subject"
                   name="subject"
                   required
-                  value={formData.subject}
-                  onChange={handleChange}
                   className="form-input"
                   placeholder="İş birliği veya teklif hakkında"
                 />
@@ -222,44 +171,13 @@ export default function Contact() {
                   id="message"
                   name="message"
                   required
-                  value={formData.message}
-                  onChange={handleChange}
                   className="form-input"
                   placeholder="Proje detaylarınızı buraya yazabilirsiniz..."
                 />
               </div>
 
-              {/* Status Notice */}
-              {submitStatus === 'success' && (
-                <div style={{
-                  padding: '1rem',
-                  borderRadius: '8px',
-                  backgroundColor: 'rgba(16, 185, 129, 0.15)',
-                  border: '1px solid rgba(16, 185, 129, 0.3)',
-                  color: '#10b981',
-                  fontSize: '0.9rem',
-                  fontWeight: '500',
-                  marginBottom: '1.5rem',
-                  textAlign: 'center'
-                }}>
-                  Mesajınız başarıyla gönderildi! Teşekkürler.
-                </div>
-              )}
-
-              {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="btn btn-primary"
-                style={{ width: '100%' }}
-              >
-                {isSubmitting ? (
-                  <span>Gönderiliyor...</span>
-                ) : (
-                  <>
-                    Mesajı Gönder <Send size={18} />
-                  </>
-                )}
+              <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
+                E-posta Uygulamasında Aç <Send size={18} aria-hidden="true" />
               </button>
 
             </form>
